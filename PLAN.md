@@ -7,40 +7,41 @@ DocFlow Lite is a browser-based document management application designed to prov
 ## Core Features (MVP)
 
 1. **Document Upload & Management**
-   - Drag-and-drop interface for uploading documents (PDF, images)
-   - Basic document organization with folders/categories
-   - Document preview functionality
+   - ✅ Drag-and-drop interface for uploading documents (PDF, images)
+   - ✅ Document organization with sorting (uploads first, generated documents last)
+   - ✅ Document preview functionality with enhanced UI
 
 2. **Document Processing**
-   - Combine multiple documents into a single PDF
-   - Split PDFs into individual pages
-   - Rotate, reorder, and delete pages
-   - Basic image-to-PDF conversion
+   - ✅ Combine multiple images into a single PDF
+   - ✅ Convert images to PDF format
+   - ✅ Metadata tracking for generated documents
+   - ⏳ Split PDFs into individual pages (planned)
+   - ⏳ Rotate, reorder, and delete pages (planned)
 
 3. **User Experience**
-   - Responsive design for desktop and mobile
-   - Offline functionality using browser storage
-   - Simple, intuitive UI with minimal learning curve
-   - Dark/light mode support
+   - ✅ Responsive design for desktop and mobile
+   - ✅ Offline functionality using browser storage
+   - ✅ Simple, intuitive UI with minimal learning curve
+   - ✅ Dark/light mode support
+   - ✅ Progress indicators for document processing
 
 4. **Data Storage**
-   - Client-side storage using IndexedDB/localForage
-   - Optional cloud sync (future enhancement)
-   - Export/import functionality for backup
+   - ✅ Client-side storage using IndexedDB via localForage
+   - ⏳ Export/import functionality for backup (planned)
+   - ⏳ Optional cloud sync (future enhancement)
 
 ## Technical Stack
 
 ### Frontend
-- **Framework**: React 19 with React Router 7
+- **Framework**: React with React Router v7
 - **Build Tool**: Vite
+- **UI Components**: Shadcn UI with Radix UI primitives
 - **Styling**: TailwindCSS
-- **State Management**: React Context API / Zustand
 - **Storage**: localForage (wrapper for IndexedDB)
-- **PDF Processing**: PDF.js, jsPDF, or pdf-lib
+- **PDF Processing**: Custom PDF generation utilities
 
 ### Development Tools
 - **Language**: TypeScript
-- **Testing**: Vitest, React Testing Library
 - **Linting**: ESLint
 - **Formatting**: Prettier
 - **Version Control**: Git
@@ -51,44 +52,85 @@ DocFlow Lite is a browser-based document management application designed to prov
 docflow-lite/
 ├── app/
 │   ├── components/        # Reusable UI components
-│   ├── hooks/             # Custom React hooks
+│   ├── features/          # Feature-specific components
+│   │   ├── document-list/
+│   │   ├── document-upload/
+│   │   ├── document-viewer/
+│   │   ├── document-conversion/
+│   │   └── document-merge/
 │   ├── lib/               # Utility functions and services
-│   ├── routes/            # Application routes
-│   ├── store/             # State management
-│   ├── styles/            # Global styles
+│   │   ├── document/      # Document processing utilities
+│   │   ├── hooks/         # Custom React hooks
+│   │   ├── storage/       # Storage services
+│   │   └── utils/         # General utilities
 │   ├── types/             # TypeScript type definitions
 │   ├── app.css            # Global CSS
-│   ├── root.tsx           # Root component
-│   └── routes.ts          # Route definitions
+│   └── main.tsx           # Application entry point
 ├── public/                # Static assets
+├── docs/                  # Project documentation
+│   ├── architecture/      # Architecture documentation
+│   ├── api/               # API documentation
+│   ├── components/        # Component documentation
+│   └── features/          # Feature documentation
 └── ...config files
 ```
 
-## Implementation Roadmap
+## Implementation Status
 
-### Phase 1: Foundation (Week 1-2)
-- Set up project structure and configuration
-- Implement basic routing and layout
-- Create core UI components
-- Set up storage system with localForage
+### Completed Features
+- ✅ Project structure and configuration
+- ✅ Basic routing and layout
+- ✅ Core UI components with Shadcn UI
+- ✅ Storage system with localForage
+- ✅ Document upload with drag-and-drop
+- ✅ Document preview with enhanced UI
+- ✅ Document list with custom sorting
+- ✅ Image to PDF conversion
+- ✅ Multiple image merging to PDF
+- ✅ Metadata tracking for generated documents
+- ✅ Dark/light mode support
+- ✅ Responsive design
+- ✅ Progress indicators for processing
+- ✅ Comprehensive documentation
 
-### Phase 2: Core Functionality (Week 3-4)
-- Implement document upload and preview
-- Develop basic document organization
-- Create PDF manipulation features
-- Implement offline functionality
+### In Progress
+- ⏳ Advanced document organization
+- ⏳ PDF splitting functionality
+- ⏳ Page manipulation (rotate, reorder, delete)
 
-### Phase 3: Refinement (Week 5-6)
-- Enhance UI/UX with animations and transitions
-- Optimize performance
-- Add dark/light mode
-- Implement comprehensive error handling
+### Planned Features
+- ⏳ Document annotations
+- ⏳ Export/import functionality
+- ⏳ Search capabilities
+- ⏳ Document categories and tags
 
-### Phase 4: Testing & Deployment (Week 7-8)
-- Write unit and integration tests
-- Perform cross-browser testing
-- Optimize for production
-- Deploy initial version
+## Recent Improvements
+
+1. **Document Sorting Logic**
+   - Implemented custom sorting to display regular uploads at the beginning of the list
+   - Generated documents (merged PDFs, conversions) appear at the end of the list
+   - Improved user experience by prioritizing recently uploaded documents
+
+2. **Enhanced Document Viewer**
+   - Fixed UI issues with overlapping buttons
+   - Improved dialog styling with rounded corners
+   - Better mobile responsiveness
+
+3. **Document Generation Improvements**
+   - Added metadata to track document sources and generation types
+   - Fixed issues with duplicate document creation during merges
+   - Improved refresh mechanism after document operations
+
+4. **UI Enhancements**
+   - Consistent styling across all dialogs
+   - Improved progress indicators
+   - Better error handling and user feedback
+
+5. **Comprehensive Documentation**
+   - Created detailed architecture documentation
+   - Documented all components and their usage
+   - API documentation for hooks and utilities
+   - Feature documentation with usage instructions
 
 ## Future Enhancements
 
@@ -108,66 +150,36 @@ docflow-lite/
    - Integration with productivity tools
    - Export to various formats
 
-## Monetization Strategy
-
-1. **Freemium Model**
-   - Basic features free for all users
-   - Premium features available through subscription
-   - One-time purchase options for specific feature sets
-
-2. **Premium Features**
-   - Advanced document processing
-   - Increased storage capacity
-   - Collaboration tools
-   - Priority support
-
-3. **Enterprise Solutions**
-   - Custom deployments for businesses
-   - Enhanced security features
-   - User management and permissions
-   - Integration with existing systems
-
-## Success Metrics
-
-1. **User Engagement**
-   - Number of documents processed
-   - Time spent in application
-   - Feature usage statistics
-
-2. **Performance**
-   - Document processing speed
-   - Application load time
-   - Offline reliability
-
-3. **User Satisfaction**
-   - User feedback and ratings
-   - Feature request patterns
-   - Support ticket analysis
-
 ## Development Guidelines
 
 1. **Code Quality**
    - Follow TypeScript best practices
-   - Maintain comprehensive test coverage
-   - Document code thoroughly
+   - Use interfaces for component props and data structures
+   - Document code with JSDoc comments
+   - Avoid using 'any' type; use proper typing
 
-2. **Performance**
-   - Optimize for speed and responsiveness
-   - Minimize bundle size
-   - Efficient resource usage
+2. **Component Development**
+   - Use Shadcn UI components when available
+   - Follow Tailwind CSS mobile-first approach
+   - Use Radix UI primitives for complex interactive components
+   - Maintain consistent dark/light mode support
 
-3. **Accessibility**
-   - Follow WCAG guidelines
-   - Support keyboard navigation
-   - Screen reader compatibility
+3. **Performance**
+   - Minimize state updates and side effects
+   - Use React.memo for expensive components
+   - Implement proper loading states for async operations
+   - Use dynamic imports for code splitting when appropriate
 
-4. **Security**
-   - Implement secure client-side storage
-   - Protect user data and privacy
-   - Regular security audits
+4. **Naming Conventions**
+   - Use PascalCase for component names
+   - Use camelCase for variables, functions, and instances
+   - Use kebab-case for directory names
+   - Use descriptive names with auxiliary verbs (isLoading, hasError)
 
 ## Conclusion
 
-DocFlow Lite aims to provide a streamlined, browser-based document management solution that respects user privacy and works reliably offline. By focusing on core document processing features and an intuitive user experience, the application will offer significant value while maintaining simplicity and performance.
+DocFlow Lite has made significant progress in providing a streamlined, browser-based document management solution that respects user privacy and works reliably offline. The application now offers core document processing features with an intuitive user experience, while maintaining simplicity and performance.
 
-The project will be developed iteratively, with regular testing and feedback incorporation to ensure it meets user needs effectively. The foundation built in this initial phase will support future enhancements and potential monetization strategies. 
+Recent improvements have addressed key usability issues and enhanced the document management experience. The comprehensive documentation created will support future development and make it easier for new contributors to understand the project architecture and codebase.
+
+The foundation built so far will support future enhancements and potential monetization strategies, with a focus on maintaining the application's core principles of privacy, simplicity, and offline functionality. 

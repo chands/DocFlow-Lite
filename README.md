@@ -1,100 +1,143 @@
-# Welcome to React Router!
+# DocFlow Lite
 
-A modern, production-ready template for building full-stack React applications using React Router.
+A lightweight, browser-based document management application that allows users to manage, combine, and organize documents without server dependencies.
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
+## Overview
+
+DocFlow Lite is designed to provide a simple, efficient way to handle document management tasks directly in the browser. It focuses on client-side processing, ensuring privacy and offline functionality.
+
+![DocFlow Lite Screenshot](public/screenshot.png)
 
 ## Features
 
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
+- 📄 **Document Upload & Management**
+  - Drag-and-drop interface for uploading documents (PDF, images)
+  - Document preview and organization
+  - Intuitive document list with sorting options
+
+- 🔄 **Document Processing**
+  - Convert images to PDF format
+  - Merge multiple images into a single PDF
+  - View documents in a clean, distraction-free interface
+
+- 💾 **Client-side Storage**
+  - All documents stored locally in your browser
+  - No server uploads, ensuring privacy
+  - Works offline with IndexedDB/localForage
+
+- 🎨 **Modern User Experience**
+  - Responsive design for desktop and mobile
+  - Dark/light mode support
+  - Intuitive UI with minimal learning curve
 
 ## Getting Started
 
+### Prerequisites
+
+- Node.js 18.0 or higher
+- npm or yarn
+
 ### Installation
 
-Install the dependencies:
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/docflow-lite.git
+cd docflow-lite
+```
 
+2. Install dependencies:
 ```bash
 npm install
 ```
 
-### Development
-
-Start the development server with HMR:
-
+3. Start the development server:
 ```bash
 npm run dev
 ```
 
-Your application will be available at `http://localhost:5173`.
+4. Open your browser and navigate to `http://localhost:5173`
 
-## Building for Production
+## Usage Guide
 
-Create a production build:
+### Uploading Documents
 
-```bash
-npm run build
-```
+1. Navigate to the Documents page
+2. Drag and drop files into the upload area or click to select files
+3. Supported formats: PDF, PNG, JPEG, WebP
 
-## Deployment
+### Converting Images to PDF
 
-### Docker Deployment
+1. Select an image document from your list
+2. Click the "PDF" button to convert it
+3. The converted PDF will appear in your document list
 
-This template includes three Dockerfiles optimized for different package managers:
+### Merging Images
 
-- `Dockerfile` - for npm
-- `Dockerfile.pnpm` - for pnpm
-- `Dockerfile.bun` - for bun
+1. Select multiple image documents using the checkboxes
+2. Click the "Merge Selected" button
+3. The merged PDF will be created and added to your document list
 
-To build and run using Docker:
+### Document Management
 
-```bash
-# For npm
-docker build -t my-app .
+- **View**: Click on a document to open it in the viewer
+- **Download**: Use the download button to save a document to your device
+- **Delete**: Remove documents you no longer need
+- **Share**: Share documents using the Web Share API (if supported by your browser)
 
-# For pnpm
-docker build -f Dockerfile.pnpm -t my-app .
+## Technical Stack
 
-# For bun
-docker build -f Dockerfile.bun -t my-app .
+- **Framework**: React with React Router 7
+- **Build Tool**: Vite
+- **Styling**: TailwindCSS with Shadcn UI components
+- **Storage**: localForage (wrapper for IndexedDB)
+- **PDF Processing**: Custom PDF generation and manipulation
 
-# Run the container
-docker run -p 3000:3000 my-app
-```
-
-The containerized application can be deployed to any platform that supports Docker, including:
-
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
+## Project Structure
 
 ```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
+docflow-lite/
+├── app/                  # Application code
+│   ├── components/       # Reusable UI components
+│   ├── features/         # Feature-specific components
+│   ├── hooks/            # Custom React hooks
+│   ├── lib/              # Utility functions and services
+│   ├── routes/           # Application routes
+│   ├── store/            # State management
+│   ├── types/            # TypeScript type definitions
+│   ├── app.css           # Global CSS
+│   ├── root.tsx          # Root component
+│   └── routes.ts         # Route definitions
+├── docs/                 # Documentation
+├── public/               # Static assets
+└── ...config files
 ```
 
-## Styling
+## Documentation
 
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
+For more detailed documentation, please refer to the [docs](./docs) directory:
 
----
+- [Architecture Overview](./docs/architecture/README.md)
+- [Feature Documentation](./docs/features/README.md)
+- [Component Library](./docs/components/README.md)
+- [API Reference](./docs/api/README.md)
 
-Built with ❤️ using React Router.
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgments
+
+- [React Router](https://reactrouter.com/) for routing
+- [Shadcn UI](https://ui.shadcn.com/) for UI components
+- [TailwindCSS](https://tailwindcss.com/) for styling
+- [localForage](https://localforage.github.io/localForage/) for storage

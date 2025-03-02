@@ -17,6 +17,7 @@ export interface DocumentMeta {
   createdAt: number;
   tags?: string[];
   category?: string;
+  metadata?: Record<string, unknown>;
 }
 
 // Save a document to storage
@@ -52,6 +53,8 @@ export async function saveDocument(file: File): Promise<DocumentMeta> {
 // Get all document metadata
 export async function getAllDocuments(): Promise<DocumentMeta[]> {
   const docList = await getDocumentList();
+  console.log('Document list from storage:', docList);
+  
   const documents: DocumentMeta[] = [];
   
   for (const id of docList) {
@@ -61,6 +64,7 @@ export async function getAllDocuments(): Promise<DocumentMeta[]> {
     }
   }
   
+  console.log('Retrieved documents:', documents);
   return documents;
 }
 
@@ -122,9 +126,12 @@ async function getDocumentList(): Promise<string[]> {
 // Helper function to add a document to the list
 async function addToDocumentList(id: string): Promise<void> {
   const list = await getDocumentList();
+  console.log('Current document list before adding:', list);
+  
   if (!list.includes(id)) {
     list.push(id);
     await localforage.setItem('documentList', list);
+    console.log('Updated document list after adding:', list);
   }
 }
 
