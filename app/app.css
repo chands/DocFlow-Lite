@@ -18,6 +18,28 @@ body {
   }
 }
 
+/* Ensure clickable elements have pointer cursor */
+button,
+a,
+[role="button"],
+input[type="submit"],
+input[type="button"],
+input[type="reset"],
+.cursor-pointer,
+[data-clickable="true"] {
+  cursor: pointer;
+}
+
+/* Add cursor pointer to Shadcn UI components that are clickable */
+.dialog-trigger,
+.dropdown-menu-trigger,
+.accordion-trigger,
+.tabs-trigger,
+.select-trigger,
+.collapsible-trigger {
+  cursor: pointer;
+}
+
 :root {
   --background: oklch(1 0 0);
   --foreground: oklch(0.145 0 0);
