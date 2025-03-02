@@ -1,0 +1,1 @@
+import{w as s}from"./with-props-DhFLlbol.js";import{t as r,r as a,l as t}from"./chunk-HA7DTUK3-Cfv0O0ru.js";const c=s(function(){const e=r();return a.useEffect(()=>{e("/home")},[e]),t.jsx("div",{className:"flex items-center justify-center h-screen",children:t.jsx("p",{className:"text-gray-500 dark:text-gray-400",children:"Redirecting to home..."})})});export{c as default};

@@ -1,0 +1,82 @@
+// Cursor Rules for DocFlow Lite Project
+
+// UI Component Guidelines
+- Always use Shadcn UI components when available instead of creating custom components
+- Follow Tailwind CSS mobile-first approach for responsive design
+- Use Radix UI primitives for complex interactive components
+- Maintain consistent dark/light mode support with Tailwind's dark: variant
+
+// React Router v7 Guidelines
+- Follow React Router v7 documentation for all routing implementations
+- Maintain SPA (Single Page Application) approach as configured in react-router.config.ts
+- Use framework approach with layout(), index(), and route() functions from @react-router/dev/routes
+- Avoid custom client-side routing implementations that bypass the framework
+
+// TypeScript Best Practices
+- Use TypeScript interfaces for component props and data structures
+- Prefer type-only imports for types (import type { Type } from 'module')
+- Use proper type annotations for all functions and variables
+- Avoid using 'any' type; use proper typing or unknown with type guards
+
+// Code Structure
+- Organize files by feature/module rather than by file type
+- Keep components focused on a single responsibility
+- Use named exports for components
+- Place utility functions in appropriate lib/ directories
+
+// Performance Considerations
+- Minimize state updates and side effects
+- Use React.memo for expensive components that render often
+- Implement proper loading states for async operations
+- Use dynamic imports for code splitting when appropriate
+
+// Naming Conventions
+- Use PascalCase for component names
+- Use camelCase for variables, functions, and instances
+- Use kebab-case for directory names
+- Use descriptive names with auxiliary verbs (isLoading, hasError)
+
+// Documentation
+- Add JSDoc comments for complex functions and components
+- Document props with TypeScript interfaces
+- Include usage examples for reusable components
+- Document any non-obvious behavior or workarounds
+
+  You are an expert in TypeScript, Node.js, React Router v7, Vite, React, Shadcn UI, Radix UI and Tailwind. 
+  
+  Code Style and Structure
+  - Write concise, technical TypeScript code with accurate examples.
+  - Use functional and declarative programming patterns; avoid classes.
+  - Prefer iteration and modularization over code duplication.
+  - Use descriptive variable names with auxiliary verbs (e.g., isLoading, hasError).
+  - Structure files: exported component, subcomponents, helpers, static content, types.
+  
+  Naming Conventions
+  - Use lowercase with dashes for directories (e.g., components/auth-wizard).
+  - Favor named exports for components.
+  
+  TypeScript Usage
+  - Use TypeScript for all code; prefer interfaces over types.
+  - Avoid enums; use maps instead.
+  - Use functional components with TypeScript interfaces.
+  
+  Syntax and Formatting
+  - Use the "function" keyword for pure functions.
+  - Avoid unnecessary curly braces in conditionals; use concise syntax for simple statements.
+  - Use declarative JSX.
+  
+  UI and Styling
+  - Use Shadcn UI, Radix, and Tailwind for components and styling.
+  - Implement responsive design with Tailwind CSS; use a mobile-first approach.
+  
+  Performance Optimization
+  - Minimize 'use client', 'useEffect', and 'setState'; favor React Server Components (RSC).
+  - Wrap client components in Suspense with fallback.
+  - Use dynamic loading for non-critical components.
+  - Optimize images: use WebP format, include size data, implement lazy loading.
+  
+  Key Conventions
+  - Use 'nuqs' for URL search parameter state management.
+  
+  Follow React Router v7 docs for Data Fetching, Rendering, and Routing.
+  
